@@ -79,7 +79,7 @@ nav a {
 .btn-yellow {
     background: var(--yellow);
     color: var(--blue);
-    padding: 8px 12px;
+    padding: 5px 12px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 700;
