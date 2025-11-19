@@ -241,4 +241,31 @@ nav a {
   margin-left: auto !important;
   order: 2 !important;
 }
+/* === HEADER LOGO: MOVE LEFT + MAKE BIGGER === */
+.header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 25px 20px !important;
+}
+
+/* Put logo first and make it big */
+.header img.logo {
+    order: -1 !important;
+    height: 150px !important;   /* <<-- INCREASE/DECREASE size here */
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+}
+
+/* Move text slightly right of logo */
+.header .site-title {
+    margin-left: 20px !important;
+}
+
+/* Push the menu to the far right */
+.header nav {
+    margin-left: auto !important;
+}
 
