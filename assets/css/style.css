@@ -268,4 +268,8 @@ nav a {
 .header nav {
     margin-left: auto !important;
 }
+/* HEADER HEIGHT (just slightly bigger than logo) */
+.header {
+    padding: 14px 20px !important;   /* top/bottom  left/right */
+}
 
