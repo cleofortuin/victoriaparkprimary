@@ -58,6 +58,13 @@ nav a{color:#fff;text-decoration:none;margin-left:18px;font-weight:600}
 }
 
 .header { justify-content: space-between; }
+
+/* Make the top header logo bigger */
+.header img.logo {
+    height: 80px;     /* increase this number for bigger logo */
+    width: auto;
+}
+
 .header img.logo { order: 2; margin-right: 0; margin-left: 20px; }
 nav { order: 1; }
 
