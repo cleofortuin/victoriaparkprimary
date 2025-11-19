@@ -214,3 +214,31 @@ nav a {
         margin-left: 8px;
     }
 }
+/* FORCE header layout: put small logo on the far LEFT, title next to it, nav on the right */
+.header .container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important; /* keep items left-aligned */
+  gap: 16px !important;
+}
+
+/* ensure logo is first and sized */
+.header img.logo {
+  order: -1 !important;        /* force it before title */
+  height: 110px !important;    /* adjust size if needed */
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* small spacing for title */
+.header .site-title {
+  margin-left: 6px !important;
+}
+
+/* keep nav pushed right */
+.header nav, .header .container nav {
+  margin-left: auto !important;
+  order: 2 !important;
+}
+
