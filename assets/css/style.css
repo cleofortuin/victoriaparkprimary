@@ -57,3 +57,8 @@ nav a{color:#fff;text-decoration:none;margin-left:18px;font-weight:600}
   margin-right: 10px;  /* space between logo and title */
 }
 
+.header { justify-content: space-between; }
+.header img.logo { order: 2; margin-right: 0; margin-left: 20px; }
+nav { order: 1; }
+
+
