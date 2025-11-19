@@ -272,143 +272,95 @@ nav a {
 .header {
     padding: 14px 20px !important;   /* top/bottom  left/right */
 }
-/* ---------- Custom Header (matches your design) ---------- */
-.header {
-  background: var(--blue);
-  color: #fff;
-  width: 100%;
-}
+/* ===== CLEAN HEADER: force the design like your image ===== */
+.header { background: var(--blue); color:#fff; width:100%; }
+.header .container { max-width:1200px; margin:0 auto; padding:12px 20px 6px 20px; }
 
-/* container keeps content centered on page */
-.header .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 14px 20px 10px 20px;
-}
-
-/* TOP ROW: logo (left) + centered title + spacer (right) */
+/* Top row: left logo, centered title column, same-width spacer on right */
 .header-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
-/* logo on left */
+/* Crest (left) */
 .header .logo {
-  height: 220px;               /* change this to make crest larger/smaller */
-  width: auto;
-  object-fit: contain;
-  display: block;
+  height:220px;           /* adjust as needed; keep same value as spacer width */
+  width:auto;
+  object-fit:contain;
+  display:block;
 }
 
-/* spacer occupies same visual width as logo so title stays centered */
-.header .logo-spacer {
-  width: 220px;                /* should match logo height for visual balance */
-  min-width: 120px;
-}
+/* invisible spacer to keep title centered */
+.logo-spacer { width:220px; flex-shrink:0; }
 
-/* site title centered column */
+/* Title column centered */
 .site-title {
-  flex: 1;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex:1 1 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:6px;
 }
 
-/* Afrikaans name (top) */
-.school-af {
-  font-family: "Montserrat", sans-serif;
-  font-size: 56px;             /* big headline — adjust to taste */
-  font-weight: 800;
-  margin: 0;
-  color: #ffffff;
-  line-height: 1;
-  text-shadow: 0 2px 0 rgba(0,0,0,0.15);
-}
+/* Typographic sizes */
+.school-af { font-family:'Montserrat',sans-serif; font-size:56px; font-weight:800; margin:0; color:#fff; line-height:1; }
+.school-en { font-family:'Montserrat',sans-serif; font-size:42px; color:var(--yellow); margin:0; font-weight:700; line-height:1; }
+.tagline { font-family:'Roboto',sans-serif; font-size:14px; color:rgba(255,255,255,0.9); margin-top:6px; }
 
-/* English name (below Afrikaans) */
-.school-en {
-  font-family: "Montserrat", sans-serif;
-  font-size: 42px;
-  font-weight: 600;
-  margin: 6px 0 10px 0;
-  color: var(--yellow);
-  line-height: 1;
-}
-
-/* small tagline text under names */
-.tagline {
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  color: rgba(255,255,255,0.9);
-  margin: 0;
-}
-
-/* NAV ROW: centered links with Kontakt pinned to right */
+/* NAV ROW: always centered under the title; no wrapping */
 .main-nav {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;   /* center the list of links */
-  gap: 30px;
-  padding: 18px 0 8px 0;
-  flex-wrap: nowrap;
-  width: 100%;
+  display:flex;
+  justify-content:center; /* center the list of links */
+  align-items:center;
+  gap:36px;
+  width:100%;
+  padding:18px 0 8px 0;
+  position:relative;
+  white-space:nowrap;
 }
 
-/* standard nav links */
-.main-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 20px;
-  padding: 4px 2px;
-}
+/* nav links */
+.main-nav a { color:#fff; text-decoration:none; font-weight:700; font-size:20px; display:inline-block; }
 
-/* make the Kontak Ons button visually distinct and pinned right */
+/* keep multi-word links together */
+.main-nav a { white-space:nowrap; }
+
+/* Kontak button pinned visually to the right of the header container */
 .main-nav .btn-yellow {
-  position: absolute;
-  right: 24px;               /* distance from right edge of container */
-  top: 8px;                  /* lift it vertically a bit to align with links */
-  background: var(--yellow);
-  color: var(--blue);
-  padding: 10px 16px;
-  border-radius: 10px;
-  font-weight: 800;
-  text-decoration: none;
-  display: inline-block;
-  box-shadow: none;
+  position:absolute;
+  right:24px;  /* distance from container right edge */
+  top:8px;     /* vertical offset inside nav row */
+  background:var(--yellow);
+  color:var(--blue);
+  padding:10px 16px;
+  border-radius:10px;
+  font-weight:800;
+  text-decoration:none;
 }
 
-/* thin yellow divider just under the header */
-.header-bottom-line {
-  height: 6px;
-  background: var(--yellow);
-  width: 100%;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.06) inset;
-  margin-top: 4px;
+/* thin yellow divider */
+.header-bottom-line { height:6px; background:var(--yellow); width:100%; margin-top:6px; }
+
+/* ----- Responsive adjustments ----- */
+@media (max-width:1100px) {
+  .header .logo { height:180px; }
+  .logo-spacer { width:180px; }
+  .school-af { font-size:44px; }
+  .school-en { font-size:30px; }
+  .main-nav { gap:24px; }
+  .main-nav .btn-yellow { right:18px; padding:8px 12px; top:6px; }
 }
 
-/* ---------------- Responsive ---------------- */
-@media (max-width: 1100px) {
-  .header .logo { height: 180px; }
-  .header .logo-spacer { width: 180px; }
-  .school-af { font-size: 44px; }
-  .school-en { font-size: 30px; }
-  .main-nav a { font-size: 18px; }
-  .main-nav .btn-yellow { right: 18px; padding: 8px 12px; top: 6px; }
-}
-
-@media (max-width: 850px) {
-  /* stack layout: logo + title stacked, nav below */
-  .header .container { padding: 12px; }
-  .header-top { flex-direction: column; align-items: center; gap: 12px; }
-  .header .logo { height: 120px; }
-  .header .logo-spacer { display: none; }
-  .site-title { text-align: center; }
-  .main-nav { position: static; justify-content: center; gap: 14px; padding: 14px 0; flex-wrap: wrap; }
-  .main-nav .btn-yellow { position: static; order: 100; margin-left: 6px; }
+@media (max-width:850px) {
+  /* stack: logo above title; nav below */
+  .header-top { flex-direction:column; align-items:center; gap:12px; }
+  .header .logo { height:120px; }
+  .logo-spacer { display:none; }
+  .site-title { align-items:center; }
+  .main-nav { position:static; justify-content:center; gap:14px; padding:12px 0; flex-wrap:wrap; }
+  .main-nav .btn-yellow { position:static; order:999; width:90%; max-width:420px; margin:6px auto 0; }
 }
 
