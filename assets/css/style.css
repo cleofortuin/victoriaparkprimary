@@ -1,4 +1,8 @@
-/* Victoria Park Primary - Modern Theme (Updated with left hero logo) */
+/* Victoria Park Primary - Merged & final stylesheet
+   - Keeps your existing styles (hero, cards, footer, etc.)
+   - Removes conflicting header blocks
+   - Adds one authoritative header block that matches your design
+*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap');
 
 /* Theme Colors */
@@ -28,61 +32,6 @@ html, body {
     max-width: 1100px;
     margin: 0 auto;
     padding: 20px;
-}
-
-/* HEADER */
-.header {
-    background: var(--blue);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    border-bottom: 4px solid var(--yellow);
-    width: 100%;
-}
-
-.header img.logo {
-    height: 90px;       /* HEADER LOGO SIZE */
-    width: auto;
-    object-fit: contain;
-    margin-left: 0;     /* move fully to left */
-}
-
-.site-title {
-    font-family: 'Montserrat', sans-serif;
-}
-
-.site-title h1 {
-    font-size: 22px;
-    font-weight: 700;
-}
-
-.site-title p {
-    opacity: 0.9;
-    font-size: 13px;
-    margin-top: 4px;
-}
-
-/* NAVIGATION */
-nav {
-    margin-left: auto;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 18px;
-    font-weight: 600;
-}
-
-.btn-yellow {
-    background: var(--yellow);
-    color: var(--blue);
-    padding: 3px 5px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 700;
 }
 
 /* HERO SECTION (BIG LOGO ON LEFT NOW) */
@@ -192,7 +141,12 @@ nav a {
     margin-top: 18px;
 }
 
-/* RESPONSIVE */
+/* NAVIGATION - basic fallback for pages that may use simple nav selector */
+nav, .main-nav {
+    /* default styling left intentionally light; authoritative header CSS below will override for header */
+}
+
+/* RESPONSIVE for main content area */
 @media (max-width: 800px) {
     .hero {
         flex-direction: column;
@@ -214,153 +168,159 @@ nav a {
         margin-left: 8px;
     }
 }
-/* FORCE header layout: put small logo on the far LEFT, title next to it, nav on the right */
+
+/* ============================================================
+   FINAL AUTHORITATIVE HEADER CSS
+   (replace any previous header rules - this block should be
+    the only header styling active)
+   ============================================================ */
+
+/* Header container background + base */
+.header {
+  background: var(--blue);
+  color: #fff;
+  width: 100%;
+}
+
+/* Keep content centered and constrained */
 .header .container {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-start !important; /* keep items left-aligned */
-  gap: 16px !important;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px 6px 20px;
+  box-sizing: border-box;
 }
 
-/* ensure logo is first and sized */
-.header img.logo {
-  order: -1 !important;        /* force it before title */
-  height: 110px !important;    /* adjust size if needed */
-  width: auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* small spacing for title */
-.header .site-title {
-  margin-left: 6px !important;
-}
-
-/* keep nav pushed right */
-.header nav, .header .container nav {
-  margin-left: auto !important;
-  order: 2 !important;
-}
-/* === HEADER LOGO: MOVE LEFT + MAKE BIGGER === */
-.header {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    padding: 10px 10px !important;
-}
-
-/* Put logo first and make it big */
-.header img.logo {
-    order: -1 !important;
-    height: 200px !important;   /* <<-- INCREASE/DECREASE size here */
-    width: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    display: block !important;
-}
-
-/* Move text slightly right of logo */
-.header .site-title {
-    margin-left: 20px !important;
-}
-
-/* Push the menu to the far right */
-.header nav {
-    margin-left: auto !important;
-}
-/* HEADER HEIGHT (just slightly bigger than logo) */
-.header {
-    padding: 14px 20px !important;   /* top/bottom  left/right */
-}
-/* ===== CLEAN HEADER: force the design like your image ===== */
-.header { background: var(--blue); color:#fff; width:100%; }
-.header .container { max-width:1200px; margin:0 auto; padding:12px 20px 6px 20px; }
-
-/* Top row: left logo, centered title column, same-width spacer on right */
+/* Top row: left logo, centered title, spacer on right */
 .header-top {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 /* Crest (left) */
 .header .logo {
-  height:220px;           /* adjust as needed; keep same value as spacer width */
-  width:auto;
-  object-fit:contain;
-  display:block;
+  height: 220px; /* change this to scale logo; match .logo-spacer width */
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
-/* invisible spacer to keep title centered */
-.logo-spacer { width:220px; flex-shrink:0; }
+/* Invisible spacer ensures title remains visually centered */
+.logo-spacer {
+  width: 220px;  /* MUST match header .logo height for perfect centering */
+  flex-shrink: 0;
+}
 
 /* Title column centered */
 .site-title {
-  flex:1 1 auto;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  gap:6px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
 }
 
 /* Typographic sizes */
-.school-af { font-family:'Montserrat',sans-serif; font-size:56px; font-weight:800; margin:0; color:#fff; line-height:1; }
-.school-en { font-family:'Montserrat',sans-serif; font-size:42px; color:var(--yellow); margin:0; font-weight:700; line-height:1; }
-.tagline { font-family:'Roboto',sans-serif; font-size:14px; color:rgba(255,255,255,0.9); margin-top:6px; }
+.school-af {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  margin: 0;
+  color: #fff;
+  line-height: 1;
+}
 
-/* NAV ROW: always centered under the title; no wrapping */
+.school-en {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  color: var(--yellow);
+  margin: 0;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tagline {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  margin-top: 6px;
+}
+
+/* NAV ROW: centered links; contact button pinned to right */
 .main-nav {
-  display:flex;
-  justify-content:center; /* center the list of links */
-  align-items:center;
-  gap:36px;
-  width:100%;
-  padding:18px 0 8px 0;
-  position:relative;
-  white-space:nowrap;
+  display: flex;
+  justify-content: center; /* center the list of links */
+  align-items: center;
+  gap: 36px;
+  width: 100%;
+  padding: 18px 0 8px 0;
+  position: relative;
+  white-space: nowrap;
 }
 
 /* nav links */
-.main-nav a { color:#fff; text-decoration:none; font-weight:700; font-size:20px; display:inline-block; }
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
+  display: inline-block;
+  white-space: nowrap;
+}
 
-/* keep multi-word links together */
-.main-nav a { white-space:nowrap; }
-
-/* Kontak button pinned visually to the right of the header container */
+/* Kontak button pinned visually to the right */
 .main-nav .btn-yellow {
-  position:absolute;
-  right:24px;  /* distance from container right edge */
-  top:8px;     /* vertical offset inside nav row */
-  background:var(--yellow);
-  color:var(--blue);
-  padding:10px 16px;
-  border-radius:10px;
-  font-weight:800;
-  text-decoration:none;
+  position: absolute;
+  right: 24px;
+  top: 8px;
+  background: var(--yellow);
+  color: var(--blue);
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-block;
 }
 
-/* thin yellow divider */
-.header-bottom-line { height:6px; background:var(--yellow); width:100%; margin-top:6px; }
-
-/* ----- Responsive adjustments ----- */
-@media (max-width:1100px) {
-  .header .logo { height:180px; }
-  .logo-spacer { width:180px; }
-  .school-af { font-size:44px; }
-  .school-en { font-size:30px; }
-  .main-nav { gap:24px; }
-  .main-nav .btn-yellow { right:18px; padding:8px 12px; top:6px; }
+/* Thin yellow divider just under the header */
+.header-bottom-line {
+  height: 6px;
+  background: var(--yellow);
+  width: 100%;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06) inset;
+  margin-top: 4px;
 }
 
-@media (max-width:850px) {
-  /* stack: logo above title; nav below */
-  .header-top { flex-direction:column; align-items:center; gap:12px; }
-  .header .logo { height:120px; }
-  .logo-spacer { display:none; }
-  .site-title { align-items:center; }
-  .main-nav { position:static; justify-content:center; gap:14px; padding:12px 0; flex-wrap:wrap; }
-  .main-nav .btn-yellow { position:static; order:999; width:90%; max-width:420px; margin:6px auto 0; }
+/* ---------------- Responsive adjustments ---------------- */
+@media (max-width: 1100px) {
+  .header .logo { height: 180px; }
+  .logo-spacer { width: 180px; }
+  .school-af { font-size: 44px; }
+  .school-en { font-size: 30px; }
+  .main-nav { gap: 24px; }
+  .main-nav .btn-yellow { right: 18px; padding: 8px 12px; top: 6px; }
 }
 
+@media (max-width: 850px) {
+  /* stack on small screens */
+  .header .container { padding: 12px; }
+  .header-top { flex-direction: column; align-items: center; gap: 12px; }
+  .header .logo { height: 120px; }
+  .logo-spacer { display: none; }
+  .site-title { align-items: center; }
+  .main-nav { position: static; justify-content: center; gap: 14px; padding: 14px 0; flex-wrap: wrap; }
+  .main-nav .btn-yellow { position: static; order: 999; width: 90%; max-width: 420px; margin: 6px auto 0; }
+}
+
+/* Mobile-friendly touch improvements */
+@media (max-width: 600px) {
+  .school-af { font-size: clamp(24px, 5.5vw, 40px); }
+  .school-en { font-size: clamp(18px, 4.2vw, 30px); }
+  .main-nav a { padding: 10px 12px; font-size: 18px; }
+  .main-nav { gap: 16px; padding: 12px 0 18px; }
+  .main-nav .btn-yellow { width: 90%; display:block; text-align:center; }
+}
+
+/* End of stylesheet */
