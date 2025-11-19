@@ -1,97 +1,96 @@
-
 <!doctype html>
 <html lang="af">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Victoriapark Primêr - Tuis</title>
-<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Victoriapark Primêr - Tuis</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<header class="header">
-  <div class="container">
-    <!-- top row: left logo | centered bilingual title | spacer the same width as logo -->
-    <div class="header-top">
-      <img src="assets/images/logo.png" alt="Victoria Park Logo" class="logo">
+  <header class="header" role="banner">
+    <div class="container">
+      <!-- top row: left logo | centered bilingual title | spacer -->
+      <div class="header-top">
+        <img src="assets/images/logo.png" alt="Victoriapark Primêr wapen" class="logo">
 
-      <div class="site-title">
-        <h1 class="school-af">Victoriapark Primêr</h1>
-        <h2 class="school-en">Victoria Park Primary</h2>
-        <p class="tagline">Vonk die potensiaal deur uitnemendheid, waardes en geleenthede.</p>
+        <div class="site-title">
+          <h1 class="school-af">Victoriapark Primêr</h1>
+          <h2 class="school-en">Victoria Park Primary</h2>
+          <p class="tagline">Vonk die potensiaal deur uitnemendheid, waardes en geleenthede.</p>
+        </div>
+
+        <!-- spacer keeps the title perfectly centered while logo sits left -->
+        <div class="logo-spacer" aria-hidden="true"></div>
       </div>
 
-      <!-- spacer keeps the title perfectly centered while logo sits left -->
-      <div class="logo-spacer" aria-hidden="true"></div>
+      <!-- nav row: centered items, with Kontak Ons pinned to the far right -->
+      <nav class="main-nav" role="navigation" aria-label="Hoofnavigasie">
+        <a href="index.html" aria-current="page">Tuis</a>
+        <a href="about.html">Oor Ons</a>
+        <a href="academics.html">Akademie</a>
+        <a href="staff.html">Ons Personeel</a>
+        <a href="sports.html">Sport &amp; Kultuur</a>
+        <a href="gallery.html">Galery</a>
+        <a href="news.html">Nuus</a>
+
+        <!-- this button will be visually pinned to the right -->
+        <a class="btn-yellow" href="contact.html">Kontak Ons</a>
+      </nav>
     </div>
 
-    <!-- nav row: centered items, with Kontakt pinned at the far right -->
-    <nav class="main-nav" role="navigation" aria-label="Main navigation">
-      <a href="index.html">Tuis</a>
-      <a href="about.html">Oor Ons</a>
-      <a href="academics.html">Akademie</a>
-      <a href="staff.html">Ons Personeel</a>
-      <a href="sports.html">Sport &amp; Kultuur</a>
-      <a href="gallery.html">Galery</a>
-      <a href="news.html">Nuus</a>
+    <!-- thin yellow divider under the header -->
+    <div class="header-bottom-line" aria-hidden="true"></div>
+  </header>
 
-      <!-- this button will be visually pinned to the right -->
-      <a class="btn-yellow" href="contact.html">Kontak Ons</a>
-    </nav>
-  </div>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Welkom by Victoriapark Primêr</h2>
+        <p>Victoriapark Primêr is ’n warm, dinamiese en kindgerigte skool wat toegewyd is aan akademiese uitnemendheid en die volle ontwikkeling van elke leerder. Ons skep ’n veilige, ondersteunende omgewing waar elke kind sy of haar volle potensiaal kan ontdek.</p>
+        <p style="margin-top:12px"><strong>Ons Waardes:</strong> Respek • Verantwoordelikheid • Integriteit • Uitnemendheid</p>
+        <p><a class="btn-yellow" href="about.html">Lees meer oor ons</a></p>
+      </div>
 
-  <!-- thin yellow divider under the header -->
-  <div class="header-bottom-line" aria-hidden="true"></div>
-</header>
+      <div class="hero-image">
+        <!-- lazy-load the image for performance -->
+        <img src="assets/images/logo.png" alt="Skoolwapen" loading="lazy">
+      </div>
+    </section>
 
+    <section class="info-row">
+      <div class="card">
+        <h3>Akademie</h3>
+        <p>Sterk akademiese program met fokus op kernvaardighede en kreatiewe denke.</p>
+        <p><a href="academics.html">Meer</a></p>
+      </div>
+      <div class="card">
+        <h3>Sport & Kultuur</h3>
+        <p>Balans tussen sport, kuns en kultuur om volledige ontwikkeling te ondersteun.</p>
+        <p><a href="sports.html">Meer</a></p>
+      </div>
+      <div class="card">
+        <h3>Kontak</h3>
+        <p>Telefonies of per e-pos – ons sien graag van u reaksie.</p>
+        <p><a href="contact.html">Kontak Ons</a></p>
+      </div>
+    </section>
 
-<main class="container">
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Welkom by Victoriapark Primêr</h2>
-      <p>Victoriapark Primêr is ’n warm, dinamiese en kindgerigte skool wat toegewyd is aan akademiese uitnemendheid en die volle ontwikkeling van elke leerder. Ons skep ’n veilige, ondersteunende omgewing waar elke kind sy of haar volle potensiaal kan ontdek.</p>
-      <p style="margin-top:12px"><strong>Ons Waardes:</strong> Respek • Verantwoordelikheid • Integriteit • Uitnemendheid</p>
-      <p><a class="btn-yellow" href="about.html">Lees meer oor ons</a></p>
+    <div class="values">Respek • Verantwoordelikheid • Integriteit • Uitnemendheid</div>
+
+    <section class="section">
+      <h3>Onlangse Nuus</h3>
+      <ul>
+        <li>Termyne en belangrike datums sal binnekort aangekondig word.</li>
+        <li>Sport byeenkomste en skoolaktiwiteite - kyk na die nuusblad.</li>
+      </ul>
+      <p><a href="news.html">Alle Nuus</a></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Victoriapark Primêr | Victoria Park Primary. Alle regte voorbehou.</p>
     </div>
-    <div class="hero-image">
-      <img src="assets/images/logo.png" alt="Skool Logo">
-    </div>
-  </section>
-
-  <section class="info-row">
-    <div class="card">
-      <h3>Akademie</h3>
-      <p>Sterk akademiese program met fokus op kernvaardighede en kreatiewe denke.</p>
-      <p><a href="academics.html">Meer</a></p>
-    </div>
-    <div class="card">
-      <h3>Sport & Kultuur</h3>
-      <p>Balans tussen sport, kuns en kultuur om volledige ontwikkeling te ondersteun.</p>
-      <p><a href="sports.html">Meer</a></p>
-    </div>
-    <div class="card">
-      <h3>Kontak</h3>
-      <p>Telefonies of per e-pos – ons sien graag van u reaksie.</p>
-      <p><a href="contact.html">Kontak Ons</a></p>
-    </div>
-  </section>
-
-  <div class="values">Respek • Verantwoordelikheid • Integriteit • Uitnemendheid</div>
-
-  <section class="section">
-    <h3>Onlangse Nuus</h3>
-    <ul>
-      <li>Termyne en belangrike datums sal binnekort aangekondig word.</li>
-      <li>Sport byeenkomste en skoolaktiwiteite - kyk na die nuusblad.</li>
-    </ul>
-    <p><a href="news.html">Alle Nuus</a></p>
-  </section>
-
-</main>
-<footer class="footer">
-  <div class="container">
-    <p>© 2025 Victoriapark Primêr | Victoria Park Primary. Alle regte voorbehou.</p>
-  </div>
-</footer>
-
+  </footer>
 </body>
 </html>
