@@ -9,24 +9,38 @@
 </head>
 <body>
 <header class="header">
-  <div class="container" style="display:flex;align-items:center;">
-    <img src="assets/images/logo.png" alt="Victoria Park Logo" class="logo">
-    <div class="site-title">
-      <h1>Victoriapark Primêr <span style="font-weight:400;color:var(--yellow)">/ Victoria Park Primary</span></h1>
-      <p>Vonk die potensiaal deur uitnemendheid, waardes en geleenthede.</p>
+  <div class="container">
+    <!-- top row: left logo | centered bilingual title | spacer the same width as logo -->
+    <div class="header-top">
+      <img src="assets/images/logo.png" alt="Victoria Park Logo" class="logo">
+
+      <div class="site-title">
+        <h1 class="school-af">Victoriapark Primêr</h1>
+        <h2 class="school-en">Victoria Park Primary</h2>
+        <p class="tagline">Vonk die potensiaal deur uitnemendheid, waardes en geleenthede.</p>
+      </div>
+
+      <!-- spacer keeps the title perfectly centered while logo sits left -->
+      <div class="logo-spacer" aria-hidden="true"></div>
     </div>
-    <nav>
+
+    <!-- nav row: centered items, with Kontakt pinned at the far right -->
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
       <a href="index.html">Tuis</a>
       <a href="about.html">Oor Ons</a>
       <a href="academics.html">Akademie</a>
       <a href="staff.html">Ons Personeel</a>
-      <a href="sports.html">Sport & Kultuur</a>
+      <a href="sports.html">Sport &amp; Kultuur</a>
       <a href="gallery.html">Galery</a>
       <a href="news.html">Nuus</a>
-      <a href="contact.html">Kontak</a>
+
+      <!-- this button will be visually pinned to the right -->
       <a class="btn-yellow" href="contact.html">Kontak Ons</a>
     </nav>
   </div>
+
+  <!-- thin yellow divider under the header -->
+  <div class="header-bottom-line" aria-hidden="true"></div>
 </header>
 
 <main class="container">
