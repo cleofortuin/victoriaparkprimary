@@ -272,4 +272,143 @@ nav a {
 .header {
     padding: 14px 20px !important;   /* top/bottom  left/right */
 }
+/* ---------- Custom Header (matches your design) ---------- */
+.header {
+  background: var(--blue);
+  color: #fff;
+  width: 100%;
+}
+
+/* container keeps content centered on page */
+.header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 20px 10px 20px;
+}
+
+/* TOP ROW: logo (left) + centered title + spacer (right) */
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* logo on left */
+.header .logo {
+  height: 220px;               /* change this to make crest larger/smaller */
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* spacer occupies same visual width as logo so title stays centered */
+.header .logo-spacer {
+  width: 220px;                /* should match logo height for visual balance */
+  min-width: 120px;
+}
+
+/* site title centered column */
+.site-title {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Afrikaans name (top) */
+.school-af {
+  font-family: "Montserrat", sans-serif;
+  font-size: 56px;             /* big headline — adjust to taste */
+  font-weight: 800;
+  margin: 0;
+  color: #ffffff;
+  line-height: 1;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.15);
+}
+
+/* English name (below Afrikaans) */
+.school-en {
+  font-family: "Montserrat", sans-serif;
+  font-size: 42px;
+  font-weight: 600;
+  margin: 6px 0 10px 0;
+  color: var(--yellow);
+  line-height: 1;
+}
+
+/* small tagline text under names */
+.tagline {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  margin: 0;
+}
+
+/* NAV ROW: centered links with Kontakt pinned to right */
+.main-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* center the list of links */
+  gap: 30px;
+  padding: 18px 0 8px 0;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+/* standard nav links */
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 4px 2px;
+}
+
+/* make the Kontak Ons button visually distinct and pinned right */
+.main-nav .btn-yellow {
+  position: absolute;
+  right: 24px;               /* distance from right edge of container */
+  top: 8px;                  /* lift it vertically a bit to align with links */
+  background: var(--yellow);
+  color: var(--blue);
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: none;
+}
+
+/* thin yellow divider just under the header */
+.header-bottom-line {
+  height: 6px;
+  background: var(--yellow);
+  width: 100%;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06) inset;
+  margin-top: 4px;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 1100px) {
+  .header .logo { height: 180px; }
+  .header .logo-spacer { width: 180px; }
+  .school-af { font-size: 44px; }
+  .school-en { font-size: 30px; }
+  .main-nav a { font-size: 18px; }
+  .main-nav .btn-yellow { right: 18px; padding: 8px 12px; top: 6px; }
+}
+
+@media (max-width: 850px) {
+  /* stack layout: logo + title stacked, nav below */
+  .header .container { padding: 12px; }
+  .header-top { flex-direction: column; align-items: center; gap: 12px; }
+  .header .logo { height: 120px; }
+  .header .logo-spacer { display: none; }
+  .site-title { text-align: center; }
+  .main-nav { position: static; justify-content: center; gap: 14px; padding: 14px 0; flex-wrap: wrap; }
+  .main-nav .btn-yellow { position: static; order: 100; margin-left: 6px; }
+}
 
