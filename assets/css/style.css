@@ -1,246 +1,146 @@
-/* Victoria Park Primary - Merged & final stylesheet
-   - Keeps your existing styles (hero, cards, footer, etc.)
-   - Removes conflicting header blocks
-   - Adds one authoritative header block that matches your design
+/* Victoria Park Primary - Cleaned final stylesheet
+   - Merged, deduplicated and authoritative header + safety spacing
 */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap');
 
 /* Theme Colors */
 :root {
-    --blue: #131147;
-    --yellow: #F7F70E;
-    --light: #F7F5F3;
-    --red: #F10606;
+  --blue: #131147;
+  --yellow: #F7F70E;
+  --light: #F7F5F3;
+  --red: #F10606;
+
+  /* header tuning variables */
+  --header-logo-h: 220px;       /* crest height on desktop */
+  --site-title-top: 18px;       /* vertical offset of title from top */
+  --nav-top: 130px;             /* vertical offset of nav from top */
+  --site-header-reserve: calc(var(--header-logo-h) + 120px); /* space reserved for header */
 }
 
 /* Reset */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 /* Body */
 html, body {
-    font-family: 'Roboto', Arial, sans-serif;
-    background: var(--light);
-    color: #111;
-    line-height: 1.5;
+  font-family: 'Roboto', Arial, sans-serif;
+  background: var(--light);
+  color: #111;
+  line-height: 1.5;
 }
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
-}
+/* page container */
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
 
-/* HERO SECTION (BIG LOGO ON LEFT NOW) */
+/* HERO SECTION (keeps your current hero styles) */
 .hero {
-    background: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    margin: 18px 0;
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    flex-direction: row; /* IMAGE LEFT, TEXT RIGHT */
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  margin: 18px 0;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex-direction: row;
 }
-
-.hero .hero-image {
-    order: -1; /* FORCE IMAGE TO LEFT */
-}
-
-.hero .hero-image img {
-    max-width: 350px;   /* SIZE OF BIG HOMEPAGE LOGO */
-    width: 100%;
-    height: auto;
-}
-
-.hero .hero-text {
-    flex: 1;
-}
-
-.hero h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 28px;
-    color: var(--blue);
-    margin-bottom: 8px;
-}
+.hero .hero-image { order: -1; }
+.hero .hero-image img { max-width: 350px; width: 100%; height: auto; }
+.hero .hero-text { flex: 1; }
+.hero h2 { font-family: 'Montserrat', sans-serif; font-size: 28px; color: var(--blue); margin-bottom: 8px; }
 
 /* CARDS */
-.info-row {
-    display: flex;
-    gap: 16px;
-    margin: 16px 0;
-}
-
-.card {
-    background: #fff;
-    padding: 18px;
-    border-radius: 8px;
-    flex: 1;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-}
-
-.card h3 {
-    color: var(--blue);
-    font-family: 'Montserrat', sans-serif;
-}
+.info-row { display:flex; gap:16px; margin:16px 0; }
+.card { background:#fff; padding:18px; border-radius:8px; flex:1; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.card h3 { color: var(--blue); font-family: 'Montserrat', sans-serif; }
 
 /* VALUES STRIP */
-.values {
-    background: var(--blue);
-    color: #fff;
-    padding: 14px;
-    border-radius: 6px;
-    margin: 12px 0;
-    text-align: center;
-    font-weight: 700;
-}
+.values { background: var(--blue); color:#fff; padding:14px; border-radius:6px; margin:12px 0; text-align:center; font-weight:700; }
 
 /* GENERAL SECTIONS */
-.two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin: 16px 0;
-}
-
-.section {
-    background: #fff;
-    padding: 18px;
-    border-radius: 8px;
-}
+.two-col { display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin:16px 0; }
+.section { background:#fff; padding:18px; border-radius:8px; }
 
 /* STAFF GRID */
-.staff-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
-}
-
-.staff-card {
-    background: #fff;
-    padding: 12px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.staff-card img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 6px;
-}
+.staff-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:12px; }
+.staff-card { background:#fff; padding:12px; border-radius:8px; text-align:center; }
+.staff-card img { width:100%; height:140px; object-fit:cover; border-radius:6px; }
 
 /* FOOTER */
-.footer {
-    text-align: center;
-    color: #444;
-    padding: 18px;
-    margin-top: 18px;
-}
+.footer { text-align:center; color:#444; padding:18px; margin-top:18px; }
 
-/* NAVIGATION - basic fallback for pages that may use simple nav selector */
-nav, .main-nav {
-    /* default styling left intentionally light; authoritative header CSS below will override for header */
-}
+/* NAV fallback (kept minimal) */
+nav, .main-nav { }
 
-/* RESPONSIVE for main content area */
+/* Responsive for main content area */
 @media (max-width: 800px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero .hero-image {
-        order: 0;
-        margin-bottom: 20px;
-    }
-
-    nav {
-        margin-top: 10px;
-        width: 100%;
-        text-align: right;
-    }
-
-    nav a {
-        margin-left: 8px;
-    }
+  .hero { flex-direction: column; text-align:center; }
+  .hero .hero-image { order:0; margin-bottom:20px; }
+  nav { margin-top:10px; width:100%; text-align:right; }
+  nav a { margin-left:8px; }
 }
 
 /* ============================================================
-   FINAL AUTHORITATIVE HEADER CSS
-   (replace any previous header rules - this block should be
-    the only header styling active)
+   AUTHORITATIVE HEADER CSS
+   - single header block (crest left, centered title, centered nav, contact button right)
    ============================================================ */
 
-/* Header container background + base */
-.header {
-  background: var(--blue);
-  color: #fff;
-  width: 100%;
-}
+/* header background + base */
+.header { background: var(--blue); color: #fff; width:100%; position: relative; z-index: 9999; }
 
-/* Keep content centered and constrained */
+/* keep header content centered */
 .header .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 12px 20px 6px 20px;
   box-sizing: border-box;
+  position: relative;
 }
 
-/* Top row: left logo, centered title, spacer on right */
-.header-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
+/* header top row holder (we use a simple block; title/nav positioned absolutely below) */
+.header-top { display: block; }
 
-/* Crest (left) */
+/* crest (left) */
 .header .logo {
-  height: 220px; /* change this to scale logo; match .logo-spacer width */
+  height: var(--header-logo-h);
   width: auto;
   object-fit: contain;
+  float: left;
+  margin: 0 24px 0 0;
   display: block;
 }
 
-/* Invisible spacer ensures title remains visually centered */
-.logo-spacer {
-  width: 220px;  /* MUST match header .logo height for perfect centering */
-  flex-shrink: 0;
-}
+/* spacer optional (not required with absolute centering but allowed) */
+.logo-spacer { display: none; }
 
-/* Title column centered */
+/* absolutely centered title block */
 .site-title {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: var(--site-title-top);
   text-align: center;
-  gap: 6px;
+  z-index: 5;
+  width: auto;
+  display: block;
 }
+.site-title .school-af,
+.site-title .school-en,
+.site-title .tagline { margin: 0; padding: 0; }
 
-/* Typographic sizes */
+/* typography for header title */
 .school-af {
   font-family: 'Montserrat', sans-serif;
   font-size: 56px;
   font-weight: 800;
-  margin: 0;
   color: #fff;
   line-height: 1;
 }
-
 .school-en {
   font-family: 'Montserrat', sans-serif;
   font-size: 42px;
   color: var(--yellow);
-  margin: 0;
   font-weight: 700;
   line-height: 1;
 }
-
 .tagline {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
@@ -248,19 +148,19 @@ nav, .main-nav {
   margin-top: 6px;
 }
 
-/* NAV ROW: centered links; contact button pinned to right */
+/* nav row absolutely centered below the title */
 .main-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: var(--nav-top);
   display: flex;
-  justify-content: center; /* center the list of links */
-  align-items: center;
   gap: 36px;
-  width: 100%;
-  padding: 18px 0 8px 0;
-  position: relative;
+  justify-content: center;
+  align-items: center;
   white-space: nowrap;
+  z-index: 4;
 }
-
-/* nav links */
 .main-nav a {
   color: #fff;
   text-decoration: none;
@@ -270,11 +170,11 @@ nav, .main-nav {
   white-space: nowrap;
 }
 
-/* Kontak button pinned visually to the right */
+/* contact button pinned to the right inside the header container */
 .main-nav .btn-yellow {
   position: absolute;
   right: 24px;
-  top: 8px;
+  top: -6px;
   background: var(--yellow);
   color: var(--blue);
   padding: 10px 16px;
@@ -284,7 +184,7 @@ nav, .main-nav {
   display: inline-block;
 }
 
-/* Thin yellow divider just under the header */
+/* thin yellow divider under the header */
 .header-bottom-line {
   height: 6px;
   background: var(--yellow);
@@ -293,10 +193,9 @@ nav, .main-nav {
   margin-top: 4px;
 }
 
-/* ---------------- Responsive adjustments ---------------- */
+/* Responsive header adjustments */
 @media (max-width: 1100px) {
-  .header .logo { height: 180px; }
-  .logo-spacer { width: 180px; }
+  :root { --header-logo-h: 180px; }
   .school-af { font-size: 44px; }
   .school-en { font-size: 30px; }
   .main-nav { gap: 24px; }
@@ -304,17 +203,14 @@ nav, .main-nav {
 }
 
 @media (max-width: 850px) {
-  /* stack on small screens */
-  .header .container { padding: 12px; }
-  .header-top { flex-direction: column; align-items: center; gap: 12px; }
-  .header .logo { height: 120px; }
-  .logo-spacer { display: none; }
-  .site-title { align-items: center; }
-  .main-nav { position: static; justify-content: center; gap: 14px; padding: 14px 0; flex-wrap: wrap; }
-  .main-nav .btn-yellow { position: static; order: 999; width: 90%; max-width: 420px; margin: 6px auto 0; }
+  :root { --header-logo-h: 120px; --site-title-top: 8px; --nav-top: 220px; --site-header-reserve: calc(var(--header-logo-h) + 180px); }
+  .header .logo { float: none; display:block; margin: 0 auto 8px auto; }
+  .site-title { position: static; transform: none; margin: 0 auto 6px auto; }
+  .main-nav { position: static; transform: none; margin-top: 8px; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .main-nav .btn-yellow { position: static; order: 999; display:block; width: 90%; margin: 12px auto 0; }
 }
 
-/* Mobile-friendly touch improvements */
+/* Mobile friendly tweaks */
 @media (max-width: 600px) {
   .school-af { font-size: clamp(24px, 5.5vw, 40px); }
   .school-en { font-size: clamp(18px, 4.2vw, 30px); }
@@ -323,173 +219,34 @@ nav, .main-nav {
   .main-nav .btn-yellow { width: 90%; display:block; text-align:center; }
 }
 
-/* End of stylesheet */
-/* ===== FINAL FORCE: center title & nav, crest left =====
-   This block overrides any previous header rules and centers
-   the school title & nav while keeping the logo at the far left.
-   If the vertical spacing is slightly off, change the two numbers
-   -- --site-title-top and --nav-top -- explained below.
-*/
-:root{
-  --header-logo-h: 220px;   /* change this to scale crest */
-  --site-title-top: 18px;   /* distance from top of header to title (adjust if needed) */
-  --nav-top: 130px;         /* distance from top of header to nav (adjust if needed) */
-}
-
-/* container baseline and stacking context */
-.header { background: var(--blue) !important; color: #fff !important; width: 100% !important; }
-.header .container { max-width: 1200px !important; margin: 0 auto !important; padding: 12px 20px 6px 20px !important; position: relative !important; box-sizing: border-box !important; }
-
-/* crest - forced left */
-.header .logo {
-  height: var(--header-logo-h) !important;
-  width: auto !important;
-  object-fit: contain !important;
-  display: block !important;
-  float: left !important;
-  margin: 0 24px 0 0 !important;
-}
-
-/* remove any flexting interference on top row */
-.header-top { display: block !important; }
-
-/* TITLE: absolutely center the title over the header area */
-.site-title {
-  position: absolute !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  top: var(--site-title-top) !important;
-  text-align: center !important;
-  width: auto !important;
-  z-index: 5 !important;
-  display: block !important;
-}
-
-/* force headings style */
-.site-title .school-af, .site-title .school-en, .site-title .tagline {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* NAV: absolutely center the nav row directly under the title */
-.main-nav {
-  position: absolute !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  top: var(--nav-top) !important;
-  display: flex !important;
-  gap: 32px !important;
-  justify-content: center !important;
-  align-items: center !important;
-  white-space: nowrap !important;
-  z-index: 4 !important;
-}
-
-/* nav links */
-.main-nav a {
-  color: #fff !important;
-  text-decoration: none !important;
-  font-weight: 700 !important;
-  font-size: 20px !important;
-  padding: 6px 2px !important;
-  display: inline-block !important;
-}
-
-/* Kontak button - pinned to right edge of container (keeps same visual as design) */
-.main-nav .btn-yellow {
-  position: absolute !important;
-  right: 16px !important;
-  top: -6px !important; /* nudge so it visually aligns with nav row */
-  background: var(--yellow) !important;
-  color: var(--blue) !important;
-  padding: 10px 16px !important;
-  border-radius: 10px !important;
-  font-weight: 800 !important;
-  text-decoration: none !important;
-  display: inline-block !important;
-}
-
-/* thin yellow bottom rule */
-.header-bottom-line { height: 6px !important; background: var(--yellow) !important; width: 100% !important; margin-top: 6px !important; }
-
-/* Responsive behaviour: switch to stacked layout on small screens */
-@media (max-width: 850px) {
-  :root{ --header-logo-h: 120px; --site-title-top: 8px; --nav-top: 220px; }
-  .header .logo { float: none !important; display:block !important; margin: 0 auto 8px auto !important; }
-  .site-title { position: static !important; transform:none !important; margin: 0 auto 6px auto !important; }
-  .main-nav { position: static !important; transform:none !important; margin-top: 8px !important; gap: 14px !important; flex-wrap: wrap !important; justify-content: center !important; }
-  .main-nav .btn-yellow { position: static !important; order: 999 !important; display:block !important; width: 90% !important; margin: 12px auto 0 !important; }
-}
-
-/* end override */
-/* ==== Prevent header from overlapping page content ==== */
+/* ============================================================
+   SAFETY: reserve space for header so content never sits underneath
+   ============================================================ */
 
 /* ensure header sits on top */
-.header {
-  position: relative !important;
-  z-index: 9999 !important;
-}
-
-/* height to reserve for header area (uses your existing --header-logo-h or falls back to 220px) */
-:root {
-  --site-header-reserve: calc(var(--header-logo-h, 220px) + 120px);
-}
+.header { position: relative; z-index: 9999; }
 
 /* push the first main container down so header never overlaps it */
 main.container,
-.content-container,      /* other possible wrapper names */
+.content-container,
 .page-wrapper > .container {
   margin-top: var(--site-header-reserve) !important;
 }
 
-/* if some pages use .section directly under body, add a small safety rule */
+/* safety if .section or .hero is direct child of body */
 body > .section,
 body > .hero {
   margin-top: calc(var(--site-header-reserve) - 40px) !important;
 }
 
-/* small screens: reduce the reserved header space */
+/* slightly different reserve on small screens */
 @media (max-width: 850px) {
-  :root { --site-header-reserve: calc(var(--header-logo-h,120px) + 180px); }
+  :root { --site-header-reserve: calc(var(--header-logo-h) + 180px); }
   main.container,
   .content-container,
   .page-wrapper > .container {
     margin-top: var(--site-header-reserve) !important;
   }
 }
-/* ==== SAFETY: prevent header overlap & reserve space for header ==== */
 
-/* ensure header sits on top of page */
-.header {
-  position: relative !important;
-  z-index: 9999 !important;
-}
-
-/* reserve vertical space for the header so content starts below it
-   Adjust the fallback value (220px) if your logo/header is larger/smaller */
-:root {
-  --site-header-reserve: calc(var(--header-logo-h, 220px) + 120px);
-}
-
-/* push the main content down so the header never covers it */
-main.container,
-.content-container,      /* other possible wrapper names */
-.page-wrapper > .container {
-  margin-top: var(--site-header-reserve) !important;
-}
-
-/* safety for pages where .section or .hero is directly under body */
-body > .section,
-body > .hero {
-  margin-top: calc(var(--site-header-reserve) - 40px) !important;
-}
-
-/* smaller screens: reduce reserved header space so mobile looks ok */
-@media (max-width: 850px) {
-  :root { --site-header-reserve: calc(var(--header-logo-h, 120px) + 180px); }
-  main.container,
-  .content-container,
-  .page-wrapper > .container {
-    margin-top: var(--site-header-reserve) !important;
-  }
-}
+/* End of stylesheet */
