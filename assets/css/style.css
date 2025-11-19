@@ -422,3 +422,38 @@ nav, .main-nav {
 }
 
 /* end override */
+/* ==== Prevent header from overlapping page content ==== */
+
+/* ensure header sits on top */
+.header {
+  position: relative !important;
+  z-index: 9999 !important;
+}
+
+/* height to reserve for header area (uses your existing --header-logo-h or falls back to 220px) */
+:root {
+  --site-header-reserve: calc(var(--header-logo-h, 220px) + 120px);
+}
+
+/* push the first main container down so header never overlaps it */
+main.container,
+.content-container,      /* other possible wrapper names */
+.page-wrapper > .container {
+  margin-top: var(--site-header-reserve) !important;
+}
+
+/* if some pages use .section directly under body, add a small safety rule */
+body > .section,
+body > .hero {
+  margin-top: calc(var(--site-header-reserve) - 40px) !important;
+}
+
+/* small screens: reduce the reserved header space */
+@media (max-width: 850px) {
+  :root { --site-header-reserve: calc(var(--header-logo-h,120px) + 180px); }
+  main.container,
+  .content-container,
+  .page-wrapper > .container {
+    margin-top: var(--site-header-reserve) !important;
+  }
+}
