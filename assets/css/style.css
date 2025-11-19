@@ -252,7 +252,7 @@ nav a {
 /* Put logo first and make it big */
 .header img.logo {
     order: -1 !important;
-    height: 150px !important;   /* <<-- INCREASE/DECREASE size here */
+    height: 200px !important;   /* <<-- INCREASE/DECREASE size here */
     width: auto !important;
     margin: 0 !important;
     padding: 0 !important;
