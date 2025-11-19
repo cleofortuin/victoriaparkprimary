@@ -48,3 +48,20 @@ nav a{color:#fff;text-decoration:none;margin-left:18px;font-weight:600}
 
 /* Responsive */
 @media(max-width:800px){.hero{flex-direction:column}.header{flex-wrap:wrap}nav{margin-top:10px;width:100%;text-align:right}nav a{margin-left:8px}}
+
+/* Move the big hero logo image to the left */
+.hero {
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* ensures image appears left */
+}
+
+.hero .hero-image {
+    order: -1;          /* moves image to the left side */
+    margin-right: 20px; /* space between image and text */
+}
+
+.hero .hero-image img {
+    max-width: 300px;   /* adjust size if needed */
+    height: auto;
+}
