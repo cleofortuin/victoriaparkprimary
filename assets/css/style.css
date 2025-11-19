@@ -48,3 +48,12 @@ nav a{color:#fff;text-decoration:none;margin-left:18px;font-weight:600}
 
 /* Responsive */
 @media(max-width:800px){.hero{flex-direction:column}.header{flex-wrap:wrap}nav{margin-top:10px;width:100%;text-align:right}nav a{margin-left:8px}}
+
+/* Header logo size + alignment */
+.header img.logo {
+  height: 56px;        /* change this value (px) to make it bigger/smaller */
+  width: auto;
+  object-fit: contain;
+  margin-right: 10px;  /* space between logo and title */
+}
+
