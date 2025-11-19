@@ -324,3 +324,101 @@ nav, .main-nav {
 }
 
 /* End of stylesheet */
+/* ===== FINAL FORCE: center title & nav, crest left =====
+   This block overrides any previous header rules and centers
+   the school title & nav while keeping the logo at the far left.
+   If the vertical spacing is slightly off, change the two numbers
+   -- --site-title-top and --nav-top -- explained below.
+*/
+:root{
+  --header-logo-h: 220px;   /* change this to scale crest */
+  --site-title-top: 18px;   /* distance from top of header to title (adjust if needed) */
+  --nav-top: 130px;         /* distance from top of header to nav (adjust if needed) */
+}
+
+/* container baseline and stacking context */
+.header { background: var(--blue) !important; color: #fff !important; width: 100% !important; }
+.header .container { max-width: 1200px !important; margin: 0 auto !important; padding: 12px 20px 6px 20px !important; position: relative !important; box-sizing: border-box !important; }
+
+/* crest - forced left */
+.header .logo {
+  height: var(--header-logo-h) !important;
+  width: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  float: left !important;
+  margin: 0 24px 0 0 !important;
+}
+
+/* remove any flexting interference on top row */
+.header-top { display: block !important; }
+
+/* TITLE: absolutely center the title over the header area */
+.site-title {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  top: var(--site-title-top) !important;
+  text-align: center !important;
+  width: auto !important;
+  z-index: 5 !important;
+  display: block !important;
+}
+
+/* force headings style */
+.site-title .school-af, .site-title .school-en, .site-title .tagline {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* NAV: absolutely center the nav row directly under the title */
+.main-nav {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  top: var(--nav-top) !important;
+  display: flex !important;
+  gap: 32px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  z-index: 4 !important;
+}
+
+/* nav links */
+.main-nav a {
+  color: #fff !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  padding: 6px 2px !important;
+  display: inline-block !important;
+}
+
+/* Kontak button - pinned to right edge of container (keeps same visual as design) */
+.main-nav .btn-yellow {
+  position: absolute !important;
+  right: 16px !important;
+  top: -6px !important; /* nudge so it visually aligns with nav row */
+  background: var(--yellow) !important;
+  color: var(--blue) !important;
+  padding: 10px 16px !important;
+  border-radius: 10px !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+}
+
+/* thin yellow bottom rule */
+.header-bottom-line { height: 6px !important; background: var(--yellow) !important; width: 100% !important; margin-top: 6px !important; }
+
+/* Responsive behaviour: switch to stacked layout on small screens */
+@media (max-width: 850px) {
+  :root{ --header-logo-h: 120px; --site-title-top: 8px; --nav-top: 220px; }
+  .header .logo { float: none !important; display:block !important; margin: 0 auto 8px auto !important; }
+  .site-title { position: static !important; transform:none !important; margin: 0 auto 6px auto !important; }
+  .main-nav { position: static !important; transform:none !important; margin-top: 8px !important; gap: 14px !important; flex-wrap: wrap !important; justify-content: center !important; }
+  .main-nav .btn-yellow { position: static !important; order: 999 !important; display:block !important; width: 90% !important; margin: 12px auto 0 !important; }
+}
+
+/* end override */
