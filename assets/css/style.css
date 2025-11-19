@@ -68,4 +68,20 @@ nav a{color:#fff;text-decoration:none;margin-left:18px;font-weight:600}
 .header img.logo { order: 2; margin-right: 0; margin-left: 20px; }
 nav { order: 1; }
 
+/* Move logo to far left and make it larger */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* keeps everything left-aligned */
+}
+
+.header img.logo {
+    height: 110px;   /* increase/decrease this number as needed */
+    width: auto;
+    object-fit: contain;
+    margin-right: 20px; /* space between logo and school name */
+    margin-left: 0;     /* ensure it's against the left edge */
+    padding-left: 0;    /* no padding */
+}
+
 
