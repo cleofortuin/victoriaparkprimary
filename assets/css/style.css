@@ -36,7 +36,7 @@ html, body {
     color: #fff;
     display: flex;
     align-items: center;
-    gap: 200px;
+    gap: 10px;
     padding: 20px;
     border-bottom: 4px solid var(--yellow);
     width: 100%;
