@@ -65,3 +65,20 @@ nav a{color:#fff;text-decoration:none;margin-left:18px;font-weight:600}
     max-width: 300px;   /* adjust size if needed */
     height: auto;
 }
+
+/* Move the big hero logo (homepage top image) to the left */
+.hero {
+    display: flex;
+    flex-direction: row;   /* image and text side-by-side */
+    align-items: center;
+}
+
+.hero .hero-image {
+    order: -1;            /* puts image before text */
+    margin-right: 30px;   /* spacing between logo and text */
+}
+
+.hero .hero-image img {
+    max-width: 320px;     /* adjust this number to control size */
+    height: auto;
+}
