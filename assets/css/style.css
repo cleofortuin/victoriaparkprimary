@@ -100,5 +100,24 @@ nav { order: 1; }
     padding-left: 0;    /* no padding */
 }
 
+/* Move the big hero logo image to the left */
+.hero {
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* ensures image appears left */
+}
+
+.hero .hero-image {
+    order: -1;          /* moves image to the left side */
+    margin-right: 20px; /* space between image and text */
+}
+
+.hero .hero-image img {
+    max-width: 300px;   /* adjust size if needed */
+    height: auto;
+}
+
+
+
 
 
