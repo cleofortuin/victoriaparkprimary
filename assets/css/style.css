@@ -457,3 +457,39 @@ body > .hero {
     margin-top: var(--site-header-reserve) !important;
   }
 }
+/* ==== SAFETY: prevent header overlap & reserve space for header ==== */
+
+/* ensure header sits on top of page */
+.header {
+  position: relative !important;
+  z-index: 9999 !important;
+}
+
+/* reserve vertical space for the header so content starts below it
+   Adjust the fallback value (220px) if your logo/header is larger/smaller */
+:root {
+  --site-header-reserve: calc(var(--header-logo-h, 220px) + 120px);
+}
+
+/* push the main content down so the header never covers it */
+main.container,
+.content-container,      /* other possible wrapper names */
+.page-wrapper > .container {
+  margin-top: var(--site-header-reserve) !important;
+}
+
+/* safety for pages where .section or .hero is directly under body */
+body > .section,
+body > .hero {
+  margin-top: calc(var(--site-header-reserve) - 40px) !important;
+}
+
+/* smaller screens: reduce reserved header space so mobile looks ok */
+@media (max-width: 850px) {
+  :root { --site-header-reserve: calc(var(--header-logo-h, 120px) + 180px); }
+  main.container,
+  .content-container,
+  .page-wrapper > .container {
+    margin-top: var(--site-header-reserve) !important;
+  }
+}
